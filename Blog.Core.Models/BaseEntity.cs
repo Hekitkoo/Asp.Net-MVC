@@ -7,8 +7,8 @@ namespace Blog.Core.Models
     /// </summary>
     public abstract class BaseEntity
     {
-        public int Id { get; set; }
-        public DateTime Date { get; set; }
-        public string Text { get; set; }
+        public abstract int Id { get; set; }
+        public abstract DateTime Date { get; set; }
+        public abstract string Text { get; set; }
     }
 }

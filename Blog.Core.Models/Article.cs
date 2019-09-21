@@ -7,9 +7,9 @@ namespace Blog.Core.Models
     /// </summary>
     public class Article : BaseEntity
     {
-        public int Id { get; set; }
+        public override int Id { get; set; }
         public string Name { get; set; }
-        public DateTime Date { get; set; }
-        public string Text { get; set; }
+        public override DateTime Date { get; set; }
+        public override string Text { get; set; }
     }
 }
