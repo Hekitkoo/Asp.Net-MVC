@@ -1,0 +1,14 @@
+﻿@model IEnumerable<Blog.Core.Models.Article>
+
+<div class="col-12 col-lg-8 order-lg-0 mt-1">
+   @foreach (var article in @Model)
+   {
+    <div class="card border mb-1 bg-light">
+        <h5 class="card-header bg-light">@article.Name</h5>
+        <div class="card-body">
+            <p class="card-text">@article.Text</p>
+        </div>
+        <cite class="card-footer">@article.Date</cite>
+    </div>
+   }
+</div>

@@ -1,0 +1,35 @@
+﻿@model IEnumerable<::Blog.Core.Models.Profile>
+
+    <div class="col-12 col-lg-8 order-lg-0 mt-1">
+        <h6>Все Анкеты:</h6>
+        @foreach (var profile in @Model)
+        {
+            @Html.UnOrderedList(@profile.ProfilePreview)
+        }
+
+        @foreach (var profile in @Model)
+        {
+            using (Html.BeginForm())
+            {
+                @*<div class="row">
+                    @foreach (var question in profile.Questions)
+                    {
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">@question.Text</label>
+                                <select class="form-control" id="exampleFormControlSelect1">
+                                    @foreach (var variant in question.Variants)
+                                    {
+                                        <option>@variant.Text</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                    }
+
+                    <button type="submit" class="btn btn-primary">Узнать кто я</button>
+                    }
+                </div>*@
+            }
+        }
+    </div>
