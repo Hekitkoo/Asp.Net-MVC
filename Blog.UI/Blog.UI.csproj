@@ -235,6 +235,14 @@
       <Project>{360C9D47-65AA-4847-BC7C-E327E8393E15}</Project>
       <Name>Blog.Core.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Blog.DataAccess\Blog.DataAccess.csproj">
+      <Project>{0E6AE43A-0163-4D6E-98CB-3FC86B0677B6}</Project>
+      <Name>Blog.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Blog.Services\Blog.Services.csproj">
+      <Project>{1E5FFA12-8BC7-4DFD-AD2C-9A1B44028DE5}</Project>
+      <Name>Blog.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

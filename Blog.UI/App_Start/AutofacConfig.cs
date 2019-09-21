@@ -1,9 +1,7 @@
 ﻿using System.Web.Mvc;
 using Autofac;
-using Blog;
 using Autofac.Integration.Mvc;
 using Blog.Core.Interfaces;
-using Blog.Core.Models;
 using Blog.DataAccess;
 using Blog.Services;
 
