@@ -227,6 +227,10 @@
     <TypeScriptCompile Include="Scripts\index.d.ts" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Blog.Core.Interfaces\Blog.Core.Interfaces.csproj">
+      <Project>{320053A1-FF11-4324-B598-50D94398EB1C}</Project>
+      <Name>Blog.Core.Interfaces</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Blog.Core.Models\Blog.Core.Models.csproj">
       <Project>{360C9D47-65AA-4847-BC7C-E327E8393E15}</Project>
       <Name>Blog.Core.Models</Name>
