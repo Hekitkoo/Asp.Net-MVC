@@ -17,22 +17,15 @@ namespace Blog.DataAccess
         public DbSet<Article> Articles { get; set; }
         public DbSet<Feedback> FeedbackItems { get; set; }
         public DbSet<Profile> Profiles { get; set; }
+        public DbSet<ProfileResult> Answers { get; set; }
+        public DbSet<Variant> Variants { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
 
-            modelBuilder.Entity<Question>()
-                .HasRequired<Profile>(s => s.Profile)
-                .WithMany(s => s.Questions)
-                .HasForeignKey(s => s.ProfileId);
-            modelBuilder.Entity<Variant>()
-                .HasRequired<Question>(s => s.Question)
-                .WithMany(s => s.Variants)
-                .HasForeignKey(s => s.QuestionId);
             base.OnModelCreating(modelBuilder);
+            //modelBuilder.Configurations.Add(new );
 
-            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
-            
         }
     }
 }

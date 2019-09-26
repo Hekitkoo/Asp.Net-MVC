@@ -6,6 +6,7 @@ namespace Blog.Core.Interfaces
     public interface IProfileServices
     {
         IEnumerable<Profile> GetProfiles();
-        string CountProfileResult(Profile profile, sbyte sum);
+        Profile GetProfile(int? id);
+        
     }
 }

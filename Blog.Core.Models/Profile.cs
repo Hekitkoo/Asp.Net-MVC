@@ -10,7 +10,5 @@ namespace Blog.Core.Models
         public int Id { get; set; }
         public string ProfilePreview { get; set; }
         public List<Question> Questions { get; set; }
-        public Dictionary<int, string> Results { get; set; }
-
     }
 }
