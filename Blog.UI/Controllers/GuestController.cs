@@ -1,6 +1,8 @@
-﻿using System.Web.Mvc;
+﻿using System.Linq;
+using System.Web.Mvc;
 using Blog.Core.Interfaces;
 using Blog.Core.Models;
+using Blog.UI.Models;
 
 namespace Blog.UI.Controllers
 {
@@ -16,12 +18,26 @@ namespace Blog.UI.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            return View(_service.GetFeedbackItems());
+            var items = _service.GetFeedbackItems();
+            if (items != null && items.Any())
+            {
+                FeedBackViewModel feedBackViewModel = new FeedBackViewModel
+                {
+                    FeedBacks = items,
+                    NewFeedBack = new FeedBack()
+                };
+                return View(feedBackViewModel);
+            }
+
+            return HttpNotFound();
         }
         [HttpPost]
-        public ActionResult Index(Feedback feedback)
+        public ActionResult Index(FeedBack feedBack)
         {
-            _service.AddFeedback(feedback);
+            if (ModelState.IsValid)
+            {
+                _service.CreateFeedback(feedBack);
+            }
             return RedirectToAction("Index");
         }
     }

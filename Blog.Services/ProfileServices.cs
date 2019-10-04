@@ -15,7 +15,7 @@ namespace Blog.Services
         {
             _context = context;
         }
-        public IEnumerable<Profile> GetProfiles()
+        public IQueryable<Profile> GetProfiles()
         {
             return _context.Profiles;
         }
@@ -25,15 +25,6 @@ namespace Blog.Services
             var profile = _context.Profiles
                 .Include(x => x.Questions)
                 .FirstOrDefault(p => p.Id == id);
-            foreach (var profileQuestion in profile.Questions)
-            {
-                profileQuestion.Variants =
-                    _context.Variants
-                        .Where(v => v.Questions
-                            .Select(q => q.Id)
-                            .Contains(profileQuestion.Id))
-                        .ToList();
-            }
             return profile;
         }
     }

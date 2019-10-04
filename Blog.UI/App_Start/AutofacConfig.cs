@@ -21,7 +21,7 @@ namespace Blog.UI.App_Start
             builder.RegisterType<ArticleServices>().As<IArticleServices>();
             builder.RegisterType<GuestServices>().As<IGuestServices>();
             builder.RegisterType<ProfileServices>().As<IProfileServices>();
-            builder.RegisterType<AnswerServices>().As<IAnswerServices>();
+            builder.RegisterType<ProfileResultServices>().As<IProfileResultServices>();
             // build our container
             var container = builder.Build();
 

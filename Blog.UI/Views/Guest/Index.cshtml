@@ -1,7 +1,7 @@
-﻿@model IEnumerable<Blog.Core.Models.Feedback>
+﻿@model Blog.UI.Models.FeedBackViewModel
 
 <div class="col-12 col-lg-8 order-lg-0 mt-1">
-    @foreach (var feedback in @Model)
+    @foreach (var feedback in @Model.FeedBacks)
     {
         <div class="card border mb-1 bg-light">
             <h5 class="card-header bg-light">@feedback.Name</h5>
@@ -13,12 +13,13 @@
     }
     @using (Html.BeginForm())
     {
+
         <div class="row">
             <div class="col">
                 <div class="form-group">
-                    <label for="inputAuthorName">Ваше имя</label>
-                    <input name="Author" type="text" class="form-control" id="inputAuthorName" aria-describedby="nameHelp" placeholder="Ваше имя" />
-                    <small id="nameHelp">Имя, которого вы не стыдитесь</small>
+                    <label for="inputName">Ваше имя</label>
+                    <input name="Name" type="text" class="form-control" id="inputName" aria-describedby="nameHelp" placeholder="Ваше имя" />
+                    <small id="nameHelp">Имя</small>
                 </div>
             </div>
             <div class="col">

@@ -16,5 +16,7 @@ namespace Blog.UI.Controllers
             return View(_service.GetArticles());
         }
 
+
+
     }
 }

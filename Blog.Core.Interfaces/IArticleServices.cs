@@ -1,11 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System.Linq;
 using Blog.Core.Models;
 
 namespace Blog.Core.Interfaces
 {
     public interface IArticleServices
     {
-        IEnumerable<Article> GetArticles();
+        IQueryable<Article> GetArticles();
 
     }
 }

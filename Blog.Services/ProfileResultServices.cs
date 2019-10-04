@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using Blog.Core.Interfaces;
 using Blog.Core.Models;
@@ -6,34 +7,32 @@ using Blog.DataAccess;
 
 namespace Blog.Services
 {
-    public class AnswerServices : IAnswerServices
+    public class ProfileResultServices : IProfileResultServices
     {
         private readonly BlogContext _context;
 
-        public AnswerServices(BlogContext context)
+        public ProfileResultServices(BlogContext context)
         {
             _context = context;
         }
         public ProfileResult CreateAnswer(Profile profile)
         {
             var answer = new ProfileResult();
-
+            answer.Profile = profile;
             foreach (var profileQuestion in profile.Questions)
             {
-                foreach (var variant in profileQuestion.Variants)
-                {
-                    if (variant.Selected)
-                    {
-                        answer.Answers.Add(profileQuestion, variant);
-                    }
-                }
+                answer.Answers.Add(profileQuestion);
             }
-            answer.Profile = profile;
+           
             _context.Answers.Add(answer);
             _context.SaveChanges();
 
-            //var answer2 = _context.Answers.Include(a => a.Answers )
             return (answer);
+        }
+
+        public IQueryable<ProfileResult> GetProfileResults()
+        {
+            return _context.Answers;
         }
     }
 }

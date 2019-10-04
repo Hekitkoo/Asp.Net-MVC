@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Blog.Core.Interfaces;
 using Blog.Core.Models;
 using Blog.DataAccess;
@@ -13,7 +14,7 @@ namespace Blog.Services
             this._context = context;
         }
 
-        public IEnumerable<Article> GetArticles()
+        public IQueryable<Article> GetArticles()
         {
             return _context.Articles;
         }

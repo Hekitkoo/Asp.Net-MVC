@@ -6,6 +6,6 @@ namespace Blog.Core.Models
     {
         public int Id { get; set; }
         public Profile Profile { get; set; }
-        public Dictionary<Question,Variant> Answers { get; set; }
+        public List<Question> Answers { get; set; }
     }
 }

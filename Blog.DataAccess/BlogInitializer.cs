@@ -45,27 +45,27 @@ namespace Blog.DataAccess
             context.SaveChanges();
 
 
-            var feedbackItems = new List<Feedback>
+            var feedbackItems = new List<FeedBack>
             {
-                new Feedback
+                new FeedBack
                 {
                     Name = "Author 1",
                     Date = DateTime.Parse("2019-09-19"),
                     Text = "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit in animi, quisquam vel non placeat minus numquam accusamus voluptatibus atque."
                 },
-                new Feedback
+                new FeedBack
                 {
                     Name = "Author 2",
                     Date = DateTime.Parse("2019-09-19"),
                     Text = "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit in animi, quisquam vel non placeat minus numquam accusamus voluptatibus atque."
                 },
-                new Feedback
+                new FeedBack
                 {
                     Name = "Author 3",
                     Date = DateTime.Parse("2019-09-19"),
                     Text = "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit in animi, quisquam vel non placeat minus numquam accusamus voluptatibus atque."
                 },
-                new Feedback
+                new FeedBack
                 {
                     Name = "Author 4",
                     Date = DateTime.Parse("2019-09-19"),
@@ -75,12 +75,6 @@ namespace Blog.DataAccess
             feedbackItems.ForEach(s => context.FeedbackItems.Add(s));
             context.SaveChanges();
 
-            var variants = new List<Variant>
-            {
-                new Variant { Text = "Нет"},
-                new Variant { Text = "Да"}
-            };
-
             Profile profile = new Profile
             {
                 ProfilePreview = "На сколько вы человек?",
@@ -89,18 +83,15 @@ namespace Blog.DataAccess
                 {
                     new Question
                     {
-                        Text = "Ты человек?",
-                        Variants = variants
+                        Text = "Ты человек?"
                     },
                     new Question
                     {
-                        Text = "Ты мужчина?",
-                        Variants = variants
+                        Text = "Ты мужчина?"
                     },
                     new Question
                     {
-                        Text = "Ты женщина?",
-                       Variants = variants
+                        Text = "Ты женщина?"
                     }
                 }
 

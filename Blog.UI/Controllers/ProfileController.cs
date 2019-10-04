@@ -10,11 +10,11 @@ namespace Blog.UI.Controllers
     {
         // GET: Profile
         private readonly IProfileServices _profileServices;
-        private readonly IAnswerServices _answerServices;
-        public ProfileController(IProfileServices profileServices, IAnswerServices answerServices)
+        private readonly IProfileResultServices _profileResultServices;
+        public ProfileController(IProfileServices profileServices, IProfileResultServices profileResultServices)
         {
             _profileServices = profileServices;
-            _answerServices = answerServices;
+            _profileResultServices = profileResultServices;
         }
         [HttpGet]
         public ActionResult Index()
@@ -43,7 +43,7 @@ namespace Blog.UI.Controllers
         [HttpPost]
         public ActionResult Details(Profile profile)
         {
-            var answer = _answerServices.CreateAnswer(profile);
+            var answer = _profileResultServices.CreateAnswer(profile);
             return RedirectToAction("ProfileResult", answer);
         }
 
