@@ -42,6 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PollOptions.cs" />
+    <Compile Include="Poll.cs" />
     <Compile Include="ProfileResult.cs" />
     <Compile Include="Article.cs" />
     <Compile Include="BaseEntity.cs" />
@@ -49,6 +51,7 @@
     <Compile Include="Profile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Question.cs" />
+    <Compile Include="Tag.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

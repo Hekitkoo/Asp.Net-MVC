@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using System.Data.Entity;
 using System.Linq;
 using Blog.Core.Interfaces;
 using Blog.Core.Models;
@@ -16,7 +16,19 @@ namespace Blog.Services
 
         public IQueryable<Article> GetArticles()
         {
-            return _context.Articles;
+            var context = _context.Articles;
+
+            return context;
+        }
+        public IQueryable<Article> GetTagArticles(string id)
+        {
+            return _context.Articles.Where(a => a.Tags.Any(t => t.Name == id));
+        }
+        public Article GetArticle(int? id)
+        {
+            return _context.Articles
+                .Include(s => s.Tags)
+                .FirstOrDefault(s => s.Id == id);
         }
     }
 }

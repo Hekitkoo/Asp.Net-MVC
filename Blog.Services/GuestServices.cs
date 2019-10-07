@@ -23,7 +23,7 @@ namespace Blog.Services
 
         public void CreateFeedback(FeedBack feedBack)
         {
-            feedBack.Date = DateTime.UtcNow;
+            feedBack.Date = DateTime.UtcNow.ToShortDateString();
             _context.FeedbackItems.Add(feedBack);
             _context.SaveChanges();
         }

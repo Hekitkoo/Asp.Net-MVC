@@ -19,6 +19,7 @@ namespace Blog.UI.App_Start
             // register our context
             builder.RegisterType<BlogContext>().AsSelf();
             builder.RegisterType<ArticleServices>().As<IArticleServices>();
+            builder.RegisterType<PollServices>().As<IPollServices>();
             builder.RegisterType<GuestServices>().As<IGuestServices>();
             builder.RegisterType<ProfileServices>().As<IProfileServices>();
             builder.RegisterType<ProfileResultServices>().As<IProfileResultServices>();

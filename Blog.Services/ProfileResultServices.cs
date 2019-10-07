@@ -15,19 +15,11 @@ namespace Blog.Services
         {
             _context = context;
         }
-        public ProfileResult CreateAnswer(Profile profile)
+        public ProfileResult CreateAnswer(Profile answer)
         {
-            var answer = new ProfileResult();
-            answer.Profile = profile;
-            foreach (var profileQuestion in profile.Questions)
-            {
-                answer.Answers.Add(profileQuestion);
-            }
-           
-            _context.Answers.Add(answer);
-            _context.SaveChanges();
+           var answerresult = new ProfileResult();
 
-            return (answer);
+            return answerresult;
         }
 
         public IQueryable<ProfileResult> GetProfileResults()

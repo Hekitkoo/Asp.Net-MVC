@@ -32,13 +32,20 @@ namespace Blog.UI.Controllers
             return HttpNotFound();
         }
         [HttpPost]
-        public ActionResult Index(FeedBack feedBack)
+        public ActionResult Index(FeedBackViewModel feedBack)
         {
             if (ModelState.IsValid)
             {
-                _service.CreateFeedback(feedBack);
+                _service.CreateFeedback(feedBack.NewFeedBack);
+                return RedirectToAction("Index");
             }
-            return RedirectToAction("Index");
+            var items = _service.GetFeedbackItems();
+            if (items != null && items.Any())
+            {
+                feedBack.FeedBacks = _service.GetFeedbackItems();
+                return View(feedBack);
+            }
+            return HttpNotFound();
         }
     }
 }
