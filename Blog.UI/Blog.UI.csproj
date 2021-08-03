@@ -140,6 +140,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\ViewHelper.cs" />
+    <Compile Include="Models\ArticlePollModel.cs" />
+    <Compile Include="Models\FeedBackViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -221,10 +223,11 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Profile\ProfileResult.cshtml" />
     <Content Include="Views\Profile\Details.cshtml" />
+    <Content Include="Views\Article\Details.cshtml" />
+    <Content Include="Views\Article\Tag.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

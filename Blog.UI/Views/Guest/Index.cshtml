@@ -1,7 +1,8 @@
-﻿@model IEnumerable<Blog.Core.Models.Feedback>
+﻿@model Blog.UI.Models.FeedBackViewModel
 
+</div>
 <div class="col-12 col-lg-8 order-lg-0 mt-1">
-    @foreach (var feedback in @Model)
+    @foreach (var feedback in @Model.FeedBacks)
     {
         <div class="card border mb-1 bg-light">
             <h5 class="card-header bg-light">@feedback.Name</h5>
@@ -11,23 +12,17 @@
             <cite class="card-footer">@feedback.Date</cite>
         </div>
     }
-    @using (Html.BeginForm())
-    {
-        <div class="row">
-            <div class="col">
-                <div class="form-group">
-                    <label for="inputAuthorName">Ваше имя</label>
-                    <input name="Author" type="text" class="form-control" id="inputAuthorName" aria-describedby="nameHelp" placeholder="Ваше имя" />
-                    <small id="nameHelp">Имя, которого вы не стыдитесь</small>
-                </div>
-            </div>
-            <div class="col">
-                <div class="form-group">
-                    <label for="inputText">Ваше мнение</label>
-                    <input name="Text" type="text" class="form-control" id="inputText" placeholder="Ваше мнение" />
-                </div>
-            </div>
-        </div>
-        <button type="submit" class="btn btn-primary">Отправить</button>
-    }
+    <div class="col-12 border rounded">
+        @using (Html.BeginForm())
+        {
+            <h2 class="h2">Добавить отзыв:</h2>
+            <div>@Html.LabelFor(m => m.NewFeedBack.Name):</div>
+            @Html.EditorFor(m => m.NewFeedBack.Name, new { @class = "col-12 rounded" })
+            @Html.ValidationMessageFor(m => m.NewFeedBack.Name)
+            <div>@Html.LabelFor(m => m.NewFeedBack.Text):</div>
+            @Html.TextAreaFor(m => m.NewFeedBack.Text, new { @class = " mt-1 col-12 rounded" })
+            @Html.ValidationMessageFor(m => m.NewFeedBack.Text)
+            <button type="submit" class="btn btn-primary mb-1">Отправить</button>
+        }
+    </div>
 </div>

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Blog.Core.Models
 {
@@ -9,7 +10,6 @@ namespace Blog.Core.Models
     {
         public int Id { get; set; }
         public string Text { get; set; }
-        public List<Variant> Variants { get; set; }
         public Profile Profile { get; set; }
     }
 }

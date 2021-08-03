@@ -1,12 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System.Linq;
 using Blog.Core.Models;
 
 namespace Blog.Core.Interfaces
 {
     public interface IGuestServices
     {
-        IEnumerable<Feedback> GetFeedbackItems();
+        IQueryable<FeedBack> GetFeedbackItems();
 
-        void AddFeedback(Feedback feedback);
+        void CreateFeedback(FeedBack feedback);
     }
 }

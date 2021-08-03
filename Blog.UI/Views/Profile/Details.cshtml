@@ -1,4 +1,6 @@
 ﻿@model Blog.Core.Models.Profile
+
+</div>
 <div class="col-12 col-lg-8 order-lg-0 mt-1">
 
     @using (Html.BeginForm())
@@ -7,20 +9,19 @@
             @foreach (var question in @Model.Questions)
             {
                 <div class="col-12">
-                    @Html.EnumDropDownListFor(model => model.Questions,new { @class = "form-control" })
-                        
+                    @*@Html.EnumDropDownListFor(model => model.Questions,new { @class = "form-control" })*@
+                    <div class="form-group">
+                        <label for="selectList">@question.Text</label>
+                        <select class="form-control" id="selectList">
+                            @foreach (var variant in question.Variants)
+                            {
+                                <option value="@variant.Id">@variant.Text</option>
+                            }
+                        </select>
+                    </div>
                 </div>
             }
             <button type="submit" class="col-12 btn btn-primary">Узнать кто я</button>
         </div>
     }
 </div>
-@*<div class="form-group">
-    <label for="selectList">@question.Text</label>
-        <select class="form-control" id="selectList" >
-            @foreach (var variant in question.Variants)
-            {
-                <option value="@variant.Id">@variant.Text</option>
-            }
-        </select>
-        </div>*@

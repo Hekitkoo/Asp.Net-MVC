@@ -10,10 +10,11 @@ namespace Blog.Core.Models
     {
         public int Id { get; set; }
         /// <value> Mean Author Name in Feedback context </value>
-        [Required]
+        [Required(ErrorMessage = "Name Required")]
         public string Name { get; set; }
-        public DateTime Date { get; set; }
-        [Required]
+        ///<value> it more comfortable form for view information</value>
+        public string Date { get; set; }
+        [Required(ErrorMessage = "Text Required")]
         public string Text { get; set; }
     }
 }

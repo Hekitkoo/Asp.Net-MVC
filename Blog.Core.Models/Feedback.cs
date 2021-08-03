@@ -6,7 +6,7 @@ namespace Blog.Core.Models
     /// <summary>
     /// Comments for our Blog
     /// </summary>
-    public class Feedback : BaseEntity
+    public class FeedBack : BaseEntity
     {
     }
 }

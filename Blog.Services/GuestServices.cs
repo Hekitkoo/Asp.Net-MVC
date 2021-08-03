@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Blog.Core.Interfaces;
 using Blog.Core.Models;
 using Blog.DataAccess;
@@ -15,15 +16,15 @@ namespace Blog.Services
             _context = context;
         }
 
-        public IEnumerable<Feedback> GetFeedbackItems()
+        public IQueryable<FeedBack> GetFeedbackItems()
         {
             return _context.FeedbackItems;
         }
 
-        public void AddFeedback(Feedback feedback)
+        public void CreateFeedback(FeedBack feedBack)
         {
-            feedback.Date = DateTime.UtcNow;
-            _context.FeedbackItems.Add(feedback);
+            feedBack.Date = DateTime.UtcNow.ToShortDateString();
+            _context.FeedbackItems.Add(feedBack);
             _context.SaveChanges();
         }
     }

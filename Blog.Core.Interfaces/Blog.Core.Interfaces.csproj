@@ -41,7 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IAnswerServices.cs" />
+    <Compile Include="IPollServices.cs" />
+    <Compile Include="IProfileResultServices.cs" />
     <Compile Include="IArticleServices.cs" />
     <Compile Include="IGuestServices.cs" />
     <Compile Include="IProfileServices.cs" />

@@ -48,7 +48,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AnswerServices.cs" />
+    <Compile Include="PollServices.cs" />
+    <Compile Include="ProfileResultServices.cs" />
     <Compile Include="ArticleServices.cs" />
     <Compile Include="GuestServices.cs" />
     <Compile Include="ProfileServices.cs" />
