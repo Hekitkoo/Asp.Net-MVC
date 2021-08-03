@@ -5,7 +5,7 @@ namespace Blog
     public static class ViewHelper
     {
         /// <summary>
-        /// Unsorted list helper
+        /// Select list helper
         /// </summary>
         /// <param name="helper"></param>
         /// <param name="item"></param>

@@ -5,7 +5,7 @@ namespace Blog.UI.Controllers
 {
     public class ArticleController : Controller
     {
-        IArticleServices _service;
+        private readonly IArticleServices _service;
 
         public ArticleController(IArticleServices service)
         {

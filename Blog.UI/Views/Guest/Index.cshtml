@@ -1,33 +1,33 @@
 ﻿@model IEnumerable<Blog.Core.Models.Feedback>
 
-    <div class="col-12 col-lg-8 order-lg-0 mt-1">
-        @foreach (var feedback in @Model)
-        {
-            <div class="card border mb-1 bg-light">
-                <h5 class="card-header bg-light">@feedback.Author</h5>
-                <div class="card-body">
-                    <p class="card-text">@feedback.Text</p>
+<div class="col-12 col-lg-8 order-lg-0 mt-1">
+    @foreach (var feedback in @Model)
+    {
+        <div class="card border mb-1 bg-light">
+            <h5 class="card-header bg-light">@feedback.Name</h5>
+            <div class="card-body">
+                <p class="card-text">@feedback.Text</p>
+            </div>
+            <cite class="card-footer">@feedback.Date</cite>
+        </div>
+    }
+    @using (Html.BeginForm())
+    {
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="inputAuthorName">Ваше имя</label>
+                    <input name="Author" type="text" class="form-control" id="inputAuthorName" aria-describedby="nameHelp" placeholder="Ваше имя" />
+                    <small id="nameHelp">Имя, которого вы не стыдитесь</small>
                 </div>
-                <cite class="card-footer">@feedback.Date</cite>
             </div>
-        }
-        @using (Html.BeginForm())
-        {
-    <div class="row">
-        <div class="col">
-            <div class="form-group">
-                <label for="inputAuthorName">Ваше имя</label>
-                <input name="Author" type="text" class="form-control" id="inputAuthorName" aria-describedby="nameHelp" placeholder="Ваше имя" />
-                <small id="nameHelp">Имя, которого вы не стыдитесь</small>
+            <div class="col">
+                <div class="form-group">
+                    <label for="inputText">Ваше мнение</label>
+                    <input name="Text" type="text" class="form-control" id="inputText" placeholder="Ваше мнение" />
+                </div>
             </div>
         </div>
-        <div class="col">
-            <div class="form-group">
-                <label for="inputText">Ваше мнение</label>
-                <input name="Text" type="text" class="form-control" id="inputText" placeholder="Ваше мнение" />
-            </div>
-        </div>
-    </div>
-            <button type="submit" class="btn btn-primary">Отправить</button>
-        }
-    </div>
+        <button type="submit" class="btn btn-primary">Отправить</button>
+    }
+</div>

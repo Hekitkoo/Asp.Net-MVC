@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Blog.Core.Models
 {
@@ -7,8 +8,12 @@ namespace Blog.Core.Models
     /// </summary>
     public abstract class BaseEntity
     {
-        public abstract int Id { get; set; }
-        public abstract DateTime Date { get; set; }
-        public abstract string Text { get; set; }
+        public int Id { get; set; }
+        /// <value> Mean Author Name in Feedback context </value>
+        [Required]
+        public string Name { get; set; }
+        public DateTime Date { get; set; }
+        [Required]
+        public string Text { get; set; }
     }
 }

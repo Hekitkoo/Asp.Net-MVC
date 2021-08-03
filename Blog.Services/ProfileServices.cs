@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
 using Blog.Core.Interfaces;
 using Blog.Core.Models;
 using Blog.DataAccess;
@@ -18,9 +20,21 @@ namespace Blog.Services
             return _context.Profiles;
         }
 
-        public string CountProfileResult(Profile profile, sbyte sum)
+        public Profile GetProfile(int? id)
         {
-            return profile.Results[sum];
+            var profile = _context.Profiles
+                .Include(x => x.Questions)
+                .FirstOrDefault(p => p.Id == id);
+            foreach (var profileQuestion in profile.Questions)
+            {
+                profileQuestion.Variants =
+                    _context.Variants
+                        .Where(v => v.Questions
+                            .Select(q => q.Id)
+                            .Contains(profileQuestion.Id))
+                        .ToList();
+            }
+            return profile;
         }
     }
 }

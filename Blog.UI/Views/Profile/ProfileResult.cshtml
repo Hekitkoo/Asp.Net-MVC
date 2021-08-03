@@ -1,0 +1,16 @@
+﻿@model Blog.Core.Models.ProfileResult
+
+<div class="col-12 col-lg-8 order-lg-0 mt-1">
+    <h6>@Model.Profile.ProfilePreview:</h6>
+    <div class="row">
+        @foreach (var answer in @Model.Answers)
+        {
+            <div class="col-6 col-lg-6">
+                @answer.Key:
+            </div>
+            <div class="col-6 col-lg-6">
+                @answer.Value.Text
+            </div>
+        }
+    </div>
+</div>

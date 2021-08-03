@@ -6,7 +6,7 @@ namespace Blog.UI.Controllers
 {
     public class GuestController : Controller
     {
-        private IGuestServices _service;
+        private readonly IGuestServices _service;
 
         public GuestController(IGuestServices service)
         {

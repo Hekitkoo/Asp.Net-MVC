@@ -1,4 +1,6 @@
-﻿using System.Web.Mvc;
+﻿using System.Data.Odbc;
+using System.Net;
+using System.Web.Mvc;
 using Blog.Core.Interfaces;
 using Blog.Core.Models;
 
@@ -7,27 +9,47 @@ namespace Blog.UI.Controllers
     public class ProfileController : Controller
     {
         // GET: Profile
-        private IProfileServices _service;
-
-        public ProfileController(IProfileServices service)
+        private readonly IProfileServices _profileServices;
+        private readonly IAnswerServices _answerServices;
+        public ProfileController(IProfileServices profileServices, IAnswerServices answerServices)
         {
-            _service = service;
+            _profileServices = profileServices;
+            _answerServices = answerServices;
         }
         [HttpGet]
         public ActionResult Index()
         {
-            return View(_service.GetProfiles());
+            var profiles = _profileServices.GetProfiles();
+            if (profiles == null)
+            {
+                return HttpNotFound();
+            }
+            return View(profiles);
+        }
+        [HttpGet]
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            var profile = _profileServices.GetProfile(id);
+            if (profile == null)
+            {
+                return HttpNotFound();
+            }
+            return View(profile);
         }
         [HttpPost]
-        public ActionResult Index(Profile profile)
+        public ActionResult Details(Profile profile)
         {
-            _service.CountProfileResult(profile, ViewBag.sum);
-            return RedirectToAction("Index");
+            var answer = _answerServices.CreateAnswer(profile);
+            return RedirectToAction("ProfileResult", answer);
         }
 
-        public ActionResult Result(string result)
+        public ActionResult ProfileResult(ProfileResult answer)
         {
-            return View(result);
+            return View(answer);
         }
     }
 }
